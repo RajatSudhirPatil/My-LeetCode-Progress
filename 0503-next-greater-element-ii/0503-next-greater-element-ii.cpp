@@ -1,22 +1,19 @@
 class Solution {
 public:
     vector<int> nextGreaterElements(vector<int>& a) {
-        vector<int> b;
+        vector<int> v;
         int n=a.size();
         for(int i=0;i<n;i++){
             int flag=0;
             for(int j=i+1;j<n+i;j++){
                 if(a[j%n]>a[i]){
-                    b.push_back(a[j%n]);
                     flag=1;
+                    v.push_back(a[j%n]);
                     break;
                 }
             }
-            if(flag==0)
-                 b.push_back(-1);
-            
+            if(flag==0) v.push_back(-1);
         }
-        return b;
+        return v; 
     }
 };
-//for(int j=(i+1)%n;j<n-1;j++)
