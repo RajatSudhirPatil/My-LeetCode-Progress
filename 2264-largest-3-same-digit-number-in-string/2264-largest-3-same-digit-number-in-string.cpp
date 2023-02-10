@@ -16,9 +16,7 @@ public:
         }
         string ans;
         if(flag==1){
-            for(int i=0;i<3;i++){
-                ans.push_back(maxch);
-            }
+            for(int i=0;i<3;i++) ans.push_back(maxch);
         }
         return ans;
     }
