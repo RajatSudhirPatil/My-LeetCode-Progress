@@ -13,16 +13,17 @@ class Solution {
 public:
     int max_depth;
     int deepestLeavesSum(TreeNode* root) {
+        if(!root) return 0;
         max_depth=depth(root);
-        return sm(root,0);
+        return sum(root,0);
+    }
+    int sum(TreeNode* root,int depth){
+        if(!root) return 0;
+        if(depth==max_depth-1) return root->val;
+        return sum(root->left,depth+1)+sum(root->right,depth+1);
     }
     int depth(TreeNode* root){
         if(!root) return 0;
         return max(1+depth(root->left),1+depth(root->right));
-    }
-    int sm(TreeNode* root,int depth){
-        if(!root) return 0;
-        if(depth==max_depth-1) return root->val;
-        return sm(root->left,depth+1)+sm(root->right,depth+1);
     }
 };
